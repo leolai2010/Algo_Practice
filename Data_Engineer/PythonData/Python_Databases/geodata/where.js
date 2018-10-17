@@ -1,0 +1,7 @@
+myData = [
+[34.1303067,-118.039636, '180 Campus Dr, Arcadia, CA 91007, USA'],
+[34.093074,-118.1288176, '101 S 2nd St, Alhambra, CA 91801, USA'],
+[34.0924324,-118.1097294, '801 S Ramona St, San Gabriel, CA 91776, USA'],
+[34.1174159,-118.0630003, '9501 E Lemon Ave, Arcadia, CA 91007, USA'],
+[34.12532789999999,-118.0988743, '2701 Huntington Dr, San Marino, CA 91108, USA']
+];
