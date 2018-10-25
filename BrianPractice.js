@@ -90,3 +90,36 @@ const findPairSum = (arr, sum) =>{
      
     
     //[1,2,3,7,12], sum = 9
+
+    //given a string 
+//find if its a palindrome
+const isPalindrome = (str) => {
+  const temp = str.split(" ").sort(function(a, b){
+    return a.length - b.length;
+  });
+  const rev = [];
+  str = str.split(" ").forEach((element)=>{
+    element = element.split("").reverse().join("");
+    rev.push(element)
+  });
+  var min = rev.sort(function(a, b){
+    return a.length - b.length;
+  })[rev.length-1];
+  str = rev.sort(function(a, b){
+    return a.length - b.length;
+  });
+  var allpals = []
+  for(let i = 0; i<str.length; i++){
+    if(str[i] === temp[i]){
+      if(min.length >= str[i].length){
+        min = str[i]
+        allpals.push(min)
+      }
+    }
+  }
+  return allpals + " is the shortest Palindrome"
+}
+
+console.log(isPalindrome('yesterday racecar tacocat mem ded jfefaef')) //output: mem
+
+console.log(isPalindrome('123211 asdf %efe%'))
