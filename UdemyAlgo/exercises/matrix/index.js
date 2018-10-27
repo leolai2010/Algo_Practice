@@ -69,19 +69,19 @@ function matrix(n){
     //           []]
     //create a count variable to keep count
     // should start at 1 because the matrix dont start at 0 
-    const count = 1;
+    let count = 1;
     //now you need to create matrix markers
     //make a start row index
-    const sr = 0;
+    let sr = 0;
     //make a start column index
-    const sc = 0;
+    let sc = 0;
     //make a end row index, n is max length
     //remember to -1 to convert to index
-    const er = n - 1;
+    let er = n - 1;
     //make a end column index 
-    const ec = n - 1;
+    let ec = n - 1;
     //now you need a while loop that can stop the marker from going out of bound
-    while(sr >= er && sc >= ec){
+    while(sr <= er && sc <= ec){
         //start filling in the first row
         // this can accomplished by moving the marker while filling in the counter
         // remember the filling is wrapped in a matrix
@@ -97,13 +97,29 @@ function matrix(n){
         //remember to increment row for column to keep moving!
         sr++;
         //now our marker is at ec and sr so we gotta move down
-        for(let i = ec; i<=er; i++){
+        for(let i = sr; i<=er; i++){
             //move vertically so i is now in the row space 
-            // 
-            matrix[i][]
+            //the column it should move is the end column 
+            matrix[i][ec] = count;
+            count++;
         }
-
+        ec--;
+        //now our marker is at end column of end row 
+        //fill in the end row by moving backward 
+        for(let i = ec; i>=sc; i--){
+            matrix[er][i] = count;
+            count ++;
+        }
+        er--;
+        //now marker is at start column and end row 
+        //move upward by decrementing column 
+        for(let i = er; i>=sr; i--){
+            matrix[i][sc] = count;
+            count ++;
+        }
+        sc++;
     }
+    return matrix;
 }
 
 module.exports = matrix;
