@@ -8,6 +8,19 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+class Queue {
+    //put in constructor to initializze some code
+    //in this case we need an empty array to host our data
+    constructor(){
+        this.data = [];
+    }
+    add(record){
+        //unshift method allows value to always be added to the front
+        this.data.unshift(record);
+    }
+    remove(){
+        return this.data.pop()
+    }
+}
 
 module.exports = Queue;
